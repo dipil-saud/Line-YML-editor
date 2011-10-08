@@ -14,10 +14,15 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'haml-rails'
 end
 
 gem 'jquery-rails'
+gem 'therubyracer'
 
+
+
+gem 'cloudfactory', :git => "git://github.com/dipil-saud/cloudfactory_ruby.git", :branch => :develop
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -25,9 +30,18 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :development do
+  gem 'hpricot'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'capybara'
 end
+

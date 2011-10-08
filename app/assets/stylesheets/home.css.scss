@@ -1,0 +1,49 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: #111111;
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper {
+	width: 960px;
+	margin: auto;
+  box-shadow: 0px -5px 20px #888888;
+  padding: 10px 15px;
+  background: #eeeeff;
+}
+
+.yaml_textarea {
+  min-height: 200px;
+  height: 520px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  font-family: monospace;
+  border: 0px;
+  margin: 0px;
+  resize: none;
+}
+
+#yaml_line_numbers {
+  background-color: #555555;
+  overflow: hidden;
+  color: #BBBBBB;
+  width: 30px;
+  margin-right: -5px;
+  padding-left: 2px;
+  padding-right: 3px;
+  text-align: right;
+}
+
+#line_yaml {
+  max-width: 900px;
+  min-width: 900px;
+  width: 900px;
+  background: #333333;
+  color: #DFC484;
+  overflow: auto;
+}
+

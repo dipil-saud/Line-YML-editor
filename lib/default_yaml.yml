@@ -1,0 +1,85 @@
+api_key: FillInYourAPIKeyHere
+
+title: enter line title here
+public: false
+description: A shiny new assembly line ready for you to customize. Right now it is finding people dates (uncomment and try for fun) but you should just replace everything below accordingly for your line.
+
+department: Web Research
+
+input_formats:
+  - name: email
+    required: true
+    valid_type: email # email, url, number, date, time, datetime
+  - name: location
+    required: true
+  - name: photo
+    required: true
+    valid_type: url # email, url, number, date, time, datetime
+
+stations:
+# Sample Station #1: WORKER looks at photo of person seeking a date and determines their gender and approximate age
+  - station:
+      station_index: 1
+      station_type: work # work, improve, tournament
+      worker:
+        worker_type: human # "human" or name of robot (google_translate_robot, etc)
+        num_workers: 1
+        reward: 2
+      task_form:
+       form_title: Look at a photo to determine the person's gender and approximate age
+       instruction: Click the photo link and then enter the person's gender and approximate age in the form below
+       form_fields:
+         - label: Gender
+           field_type: radio_button # short_answer, long_answer, radio_button, check_box, select_box, date, email, number
+           required: true
+           option_values:
+             - male
+             - female
+             - not sure
+         - label: Age
+           field_type: select_box # short_answer, long_answer, radio_button, check_box, select_box, date, email, number
+           required: true
+           option_values:
+             - 13 to 18
+             - 19 to 24
+             - 25 to 29
+             - 30 to 34
+             - 35 to 39
+             - 40 to 49
+             - 50 to 59
+             - 60 and up
+
+# Sample Station #2: TOURNAMENT to find the best local person on facebook that matches the right gender and age
+  - station:
+      station_index: 2
+      station_type: tournament # work, improve, tournament
+      input_formats:
+        station_0:
+          - name: location
+      worker:
+        worker_type: human # "human" or name of the robot (google_translate_robot, etc)
+        num_workers: 2
+        reward: 2
+      jury_worker:
+        max_judges: 8
+        reward: 2
+      auto_judge:
+        enabled: true
+      custom_task_form:
+        form_title: Clink a link and paste in url
+        instruction: Look through search results and find the best date
+        html: form.html
+
+# Sample Station #3: ROBOT to email the person seeking a date with their recommended match!
+  - station:
+      station_index: 3
+      station_type: work # work, improve, tournament
+      input_formats:
+        station_0:
+          - name: email
+      worker:
+        worker_type: mailer_robot
+        settings:
+          to: ["{{email}}"]
+          template: '<html><body><h1>We have searched high and low to find a sweet date for you. Now the rest is up to you - head o their facebook page and request them as a friend: {{url}}</h1><p>Good luck!!!!</p></body></html>'
+

@@ -1,0 +1,20 @@
+%h1 CF Line Create
+%p Enter your settings for the line below
+%div#errors_div
+  - if @line.errors.present?
+    %h3 There were some errors when creating your line
+    %ul
+      - @line.errors.each do |error|
+        %li
+          = error
+
+= form_tag lines_path do
+  = label_tag ""
+  = text_area_tag "", line_numbers_text, :class => "yaml_textarea", :id => "yaml_line_numbers"
+  = text_area_tag "line_yaml", params[:line_yaml] || SAMPLE_YAML, :class => "yaml_textarea", :id => "line_yaml", :wrap => "off"
+  = hidden_field_tag "cf_environment", "default"
+  %br
+  %br
+  =#TODO link_to "Validate Yaml", validate_line_yaml_path, :method => :post, :remote => true
+  = submit_tag "Submit"
+

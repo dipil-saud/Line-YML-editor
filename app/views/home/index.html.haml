@@ -1,0 +1,8 @@
+%h1 CF Line Create
+%p Enter yout settings for the line below
+= form_tag do
+  = label_tag ""
+  = text_area_tag "line_numbers", line_numbers_text, :class => "yaml_textarea", :id => "yaml_line_numbers"
+  = text_area_tag "line_yaml", SAMPLE_YAML, :class => "yaml_textarea", :id => "line_yaml", :wrap => "off"
+  = submit_tag "Submit"
+
