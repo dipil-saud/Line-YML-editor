@@ -20,7 +20,7 @@ end
 gem 'jquery-rails'
 gem 'therubyracer'
 
-
+gem 'heroku'
 
 gem 'cloudfactory', :git => "git://github.com/dipil-saud/cloudfactory_ruby.git", :branch => :develop
 # Use unicorn as the web server
@@ -30,18 +30,18 @@ gem 'cloudfactory', :git => "git://github.com/dipil-saud/cloudfactory_ruby.git",
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
   gem 'hpricot'
 end
 
 group :test, :development do
-  gem 'rspec-rails'
+  #gem 'rspec-rails'
 end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'capybara'
+  #gem 'capybara'
 end
 

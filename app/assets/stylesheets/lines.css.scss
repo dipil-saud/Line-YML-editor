@@ -1,3 +1,27 @@
 // Place all the styles related to the lines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.CodeMirror{
+  background-color: #eeeeff;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+ul#tabs{
+  display: block;
+  padding: 0px;
+  li {
+    display: inline;
+    border: 1px solid #000;
+    padding: 3px 10px;
+    text-align: center;
+    background: #666666;
+    cursor: default;
+  }
+  li.active {
+    background: #999999;
+    cursor: none;
+  }
+}
+
